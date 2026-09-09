@@ -1,393 +1,256 @@
 # User Management System
 
-A desktop-based **User Management System** built with **Java 21, Java Swing, Maven, and Microsoft SQL Server**.
+سیستم مدیریت کاربران دسکتاپ با Java Swing و Microsoft SQL Server، با پشتیبانی از مدیریت کاربران، گروه‌ها، سمت‌ها، مجوزها و تنظیمات دسترسی.
 
-این پروژه یک نرم‌افزار دسکتاپ برای **مدیریت کاربران، گروه‌ها، سمت‌ها و سطح دسترسی‌ها** است که برای سازمان‌ها، شرکت‌ها و نرم‌افزارهای داخلی طراحی شده است.
+A desktop User Management System built with Java Swing and Microsoft SQL Server, supporting user, group, position, permission, and access-control management.
 
----
-
-## فارسی
-
-### معرفی پروژه
-
-**User Management System** یک سیستم مدیریت کاربران مبتنی بر Java Desktop است که امکان مدیریت متمرکز کاربران و کنترل دقیق دسترسی آن‌ها به بخش‌های مختلف نرم‌افزار را فراهم می‌کند.
-
-سیستم از ساختار **Form → Permission → User/Group** استفاده می‌کند؛ بنابراین می‌توان مشخص کرد هر کاربر یا گروه به کدام بخش سیستم دسترسی داشته باشد و چه عملیاتی را بتواند انجام دهد.
-
-داده‌ها در **Microsoft SQL Server** ذخیره می‌شوند و پروژه دارای ساختار تفکیک‌شده برای رابط کاربری، مدل‌ها، دسترسی به داده‌ها، امنیت و مدیریت اتصال به دیتابیس است.
+نظام سطح المكتب لإدارة المستخدمين، تم تطويره باستخدام Java Swing وMicrosoft SQL Server، ويدعم إدارة المستخدمين والمجموعات والمناصب والصلاحيات والتحكم في الوصول.
 
 ---
 
-## امکانات اصلی
+## زبان‌ها | Languages | اللغات
 
-### مدیریت کاربران
+* [فارسی](#فارسی)
+* [English](#english)
+* [العربية](#العربية)
 
-امکانات بخش مدیریت کاربران شامل:
+---
 
-* ایجاد کاربر جدید
-* ویرایش اطلاعات کاربر
-* حذف کاربر
-* فعال یا غیرفعال کردن کاربر
-* تعیین نام کاربری
-* تعیین و مدیریت رمز عبور
-* تعیین نام و نام خانوادگی
-* تعیین سمت کاربر
-* اختصاص کاربر به یک یا چند گروه
-* مشاهده وضعیت فعال/غیرفعال کاربران
-* مشاهده لیست کاربران در قالب جدول
+# فارسی
+
+## معرفی
+
+**User Management System** یک نرم‌افزار دسکتاپ برای مدیریت کاربران و کنترل دسترسی است که با **Java 21**، **Java Swing** و **Microsoft SQL Server** توسعه داده شده است.
+
+این پروژه امکاناتی برای مدیریت کاربران، گروه‌ها، سمت‌ها و مجوزها فراهم می‌کند و از سیستم‌های مختلف برای کنترل دسترسی کاربران پشتیبانی می‌کند.
+
+## امکانات
+
+* ورود کاربران به سیستم
+* مدیریت کاربران
+* ایجاد، ویرایش و حذف کاربران
+* فعال یا غیرفعال کردن کاربران
 * جستجوی کاربران
-* نمایش تعداد کل رکوردها
-* Pagination برای مدیریت تعداد زیاد کاربران
-* تعیین تعداد رکوردهای قابل نمایش در هر صفحه
-* حرکت به صفحه اول، قبل، بعد و آخر
+* صفحه‌بندی لیست کاربران
+* انتخاب تعداد رکورد در هر صفحه
+* مدیریت Groups
+* مدیریت Positions
+* مدیریت Permissions
+* تخصیص کاربران به گروه‌ها
+* تخصیص مجوزهای سفارشی به کاربران
+* مدیریت مجوزهای گروه‌ها
+* مدیریت تنظیمات فرم‌های کاربران
+* ثبت تاریخچه سمت کاربران
+* مدیریت رمز عبور با Password Hashing
+* کنترل دسترسی بر اساس Permission
+* تنظیم اتصال به SQL Server از داخل برنامه
+* تست اتصال به دیتابیس
+* پشتیبانی از تغییر Theme رابط کاربری
 
-در فرم مدیریت کاربران، دسترسی‌های **ثبت، ویرایش و حذف** نیز مستقل از یکدیگر کنترل می‌شوند.
+## تکنولوژی‌ها
 
----
-
-### مدیریت Groups
-
-سیستم امکان ایجاد ساختار گروهی برای کاربران را فراهم می‌کند.
-
-کاربر می‌تواند:
-
-* گروه ایجاد کند
-* گروه‌ها را مدیریت کند
-* کاربران را عضو گروه کند
-* یک کاربر را در چند گروه قرار دهد
-* عضویت کاربران در گروه‌ها را تغییر دهد
-
-این ساختار باعث می‌شود بتوان به‌جای تنظیم تک‌تک کاربران، دسترسی‌ها را در سطح گروه نیز مدیریت کرد.
-
----
-
-### مدیریت Positions
-
-سیستم دارای بخش جداگانه‌ای برای مدیریت **Position / سمت سازمانی** است.
-
-از Position می‌توان برای مشخص کردن سمت کاربران در سازمان استفاده کرد.
-
-برای مثال:
-
-* مدیر سیستم
-* مدیر واحد
-* کارشناس
-* اپراتور
-* حسابدار
-* کارمند
-
-سمت‌ها در فرم مدیریت کاربران نیز قابل انتخاب هستند.
-
----
-
-### مدیریت Permissions
-
-یکی از مهم‌ترین قابلیت‌های پروژه، سیستم **Permission Management** است.
-
-Permissionها به فرم‌ها و بخش‌های مختلف سیستم متصل هستند و می‌توان دسترسی‌های مختلف را برای کاربران تعیین کرد.
-
-برای هر بخش می‌توان Permissionهای متفاوتی تعریف کرد؛ برای مثال:
-
-* مشاهده
-* ایجاد
-* ویرایش
-* حذف
-* ثبت
-* سایر عملیات اختصاصی
-
-دسترسی‌ها به‌صورت Tree نمایش داده می‌شوند و مدیر می‌تواند Permissionهای موردنظر را برای کاربر انتخاب و ذخیره کند.
-
----
-
-### دسترسی‌های اختصاصی کاربران
-
-علاوه بر Group-based Access، پروژه از **Custom User Permissions** نیز پشتیبانی می‌کند.
-
-یعنی می‌توان:
-
-> یک Permission را مستقیماً به یک کاربر اختصاص داد، بدون اینکه لازم باشد آن Permission از طریق Group به کاربر داده شود.
-
-این قابلیت برای شرایطی مناسب است که یک کاربر نیاز به دسترسی متفاوتی نسبت به سایر اعضای گروه خود داشته باشد.
-
----
-
-### کنترل دسترسی در رابط کاربری
-
-دسترسی‌ها فقط در دیتابیس ذخیره نمی‌شوند؛ رابط کاربری نیز بر اساس Permissionهای کاربر کنترل می‌شود.
-
-برای مثال اگر کاربر Permission مربوط به حذف را نداشته باشد، گزینه Delete در فرم مدیریت کاربران نمایش داده نمی‌شود.
-
-به همین شکل، بخش‌هایی مانند مدیریت کاربران و Positionها نیز قبل از باز شدن Permission کاربر را بررسی می‌کنند.
-
----
-
-### Login و Authentication
-
-سیستم دارای صفحه Login است و قبل از ورود به بخش‌های مدیریتی، کاربر احراز هویت می‌شود.
-
-رمز عبور نیز در لایه امنیتی پروژه توسط `PasswordHasher` مدیریت می‌شود.
-
----
-
-### Pagination و Search
-
-در بخش User Management امکانات زیر وجود دارد:
-
-* جستجو
-* Pagination
-* نمایش تعداد رکوردها
-* نمایش تعداد صفحات
-* انتخاب Page Size
-* First Page
-* Previous Page
-* Next Page
-* Last Page
-
-Page Size کاربر نیز در دیتابیس ذخیره می‌شود تا تنظیمات نمایش لیست کاربران حفظ شود.
-
----
-
-### Database Management
-
-پروژه از **Microsoft SQL Server** استفاده می‌کند.
-
-فایل زیر برای ایجاد دیتابیس ارائه شده است:
-
-```text
-Database/database-setup.sql
-```
-
-این فایل دیتابیس:
-
-```text
-UserManagementSystem
-```
-
-را ایجاد می‌کند و ساختار جداول، ارتباطات و داده‌های اولیه مورد نیاز سیستم را آماده می‌سازد.
-
-> توجه: فایل `database-setup.sql` شامل دستور حذف دیتابیس قبلی در صورت وجود است؛ بنابراین قبل از اجرای آن روی دیتابیس دارای اطلاعات واقعی، باید این بخش بررسی شود.
-
----
+* Java 21
+* Java Swing
+* Maven
+* Microsoft SQL Server
+* JDBC
+* FlatLaf
+* SwingX
+* JUnit
 
 ## ساختار پروژه
 
 ```text
-user-management-system/
+UserManagementSystem/
 │
 ├── Database/
 │   └── database-setup.sql
 │
 ├── lib/
-│   ├── JavaDate
-│   ├── ICU4J
-│   ├── SwingX
-│   └── SwingX BeanInfo
+│   ├── JavaDate 1.3.jar
+│   ├── icu4j-57_1.jar
+│   ├── swingx-all-1.6.5-1.jar
+│   └── swingx-beaninfo-1.6.5-1.jar
 │
 ├── src/
 │   ├── main/
-│   │   ├── java/
-│   │   │   └── com/programsfuture/usermanagement/
-│   │   │       │
-│   │   │       ├── dao/
-│   │   │       ├── data/
-│   │   │       ├── model/
-│   │   │       ├── security/
-│   │   │       └── ui/
-│   │   │
-│   │   └── resources/
+│   │   └── java/
+│   │       └── com/programsfuture/usermanagement/
+│   │           ├── dao/
+│   │           ├── data/
+│   │           ├── model/
+│   │           ├── security/
+│   │           └── ui/
 │   │
 │   └── test/
 │
 ├── pom.xml
-└── nbactions.xml
+├── .gitignore
+└── README.md
 ```
 
-ساختار Java پروژه بخش‌های جداگانه‌ای برای DAO، Data Access، Model، Security و UI دارد.
+## پیش‌نیازها
 
----
+برای اجرای پروژه موارد زیر مورد نیاز است:
 
-## تکنولوژی‌ها
-
-| Technology           | Usage                         |
-| -------------------- | ----------------------------- |
-| Java 21              | Core application              |
-| Java Swing           | Desktop User Interface        |
-| Maven                | Build & Dependency Management |
-| Microsoft SQL Server | Database                      |
-| JDBC                 | Database Connectivity         |
-| FlatLaf              | Modern Swing Look & Feel      |
-| SwingX               | Extended Swing Components     |
-| JUnit                | Testing                       |
-
-نسخه Java مورد استفاده پروژه در `pom.xml` برابر **Java 21** تنظیم شده است و JDBC Driver رسمی Microsoft SQL Server نیز به‌عنوان dependency پروژه استفاده می‌شود.
-
----
-
-## مناسب برای چه پروژه‌هایی است؟
-
-این سیستم می‌تواند به‌عنوان User Management Module برای نرم‌افزارهای زیر استفاده شود:
-
-* نرم‌افزارهای سازمانی
-* سیستم‌های اداری
-* ERP
-* CRM
-* سیستم‌های حسابداری
-* سیستم‌های منابع انسانی
-* نرم‌افزارهای داخلی شرکت‌ها
-* سیستم‌های مدیریت سازمان
-* نرم‌افزارهای دارای Role و Permission
-* نرم‌افزارهای Desktop مبتنی بر Java
-
-همچنین می‌توان ساختار آن را به‌عنوان پایه یک نرم‌افزار بزرگ‌تر استفاده کرد و فرم‌های جدید را به سیستم Permission متصل کرد.
-
----
-
-## مدل دسترسی
-
-ساختار کلی سیستم به شکل زیر است:
-
-```text
-User
- │
- ├── Position
- │
- ├── Groups
- │    └── Permissions
- │
- └── Custom Permissions
-```
-
-و Permissionها به Formهای سیستم متصل هستند:
-
-```text
-Form
- ├── Permission 1
- ├── Permission 2
- ├── Permission 3
- └── Permission 4
-```
-
-در نتیجه می‌توان یک سیستم دسترسی چندلایه ایجاد کرد:
-
-```text
-User
-   ↓
-Group
-   ↓
-Permissions
-   ↓
-Forms
-```
-
-و در صورت نیاز:
-
-```text
-User
-   ↓
-Custom Permissions
-   ↓
-Forms
-```
-
----
-
-## نصب و راه‌اندازی
-
-### پیش‌نیازها
-
-برای اجرای پروژه نیاز است:
-
-* JDK 21
+* Java JDK 21 یا بالاتر
 * Maven
 * Microsoft SQL Server
-* یک SQL Server Client مانند SQL Server Management Studio
-* Git
+* دسترسی به یک SQL Server فعال
+* Git، در صورت دریافت پروژه از Repository
 
----
+## نصب و اجرا
 
-### 1. Clone کردن پروژه
+### 1. دریافت پروژه
+
+Repository را Clone کنید:
 
 ```bash
 git clone https://github.com/programsfuture/user-management-system.git
 cd user-management-system
 ```
 
----
-
 ### 2. ایجاد دیتابیس
 
-فایل زیر را در SQL Server اجرا کنید:
+فایل زیر را پیدا کنید:
 
 ```text
 Database/database-setup.sql
 ```
 
-این فایل دیتابیس `UserManagementSystem` را ایجاد می‌کند.
+این فایل را با SQL Server Management Studio یا ابزار مناسب SQL Server اجرا کنید.
 
----
+این Script دیتابیس زیر را ایجاد می‌کند:
+
+```text
+UserManagementSystem
+```
+
+و جداول مورد نیاز سیستم را ایجاد و داده‌های اولیه را وارد می‌کند.
+
+> **هشدار:** اسکریپت `database-setup.sql` در ابتدای اجرا، در صورت وجود دیتابیس `UserManagementSystem` آن را حذف و مجدداً ایجاد می‌کند. بنابراین آن را روی دیتابیسی که حاوی اطلاعات مهم است اجرا نکنید.
 
 ### 3. تنظیم اتصال دیتابیس
 
-اطلاعات اتصال SQL Server را در تنظیمات Database پروژه وارد کنید.
+پس از اجرای برنامه، تنظیمات اتصال به SQL Server را از طریق بخش **Database Settings** در خود برنامه انجام دهید.
 
-سیستم دارای بخش اختصاصی برای تنظیمات اتصال دیتابیس است و منطق اتصال نیز در کلاس‌های مربوط به Database Configuration و Database Connection قرار گرفته است.
+اطلاعات مورد نیاز:
 
----
+* **Server:** نام یا IP سرور SQL Server
+* **Port:** پورت SQL Server، معمولاً `1433`
+* **Database:** نام دیتابیس، به‌صورت پیش‌فرض `UserManagementSystem`
+* **Username:** نام کاربری SQL Server
+* **Password:** رمز عبور SQL Server
 
-### 4. Build پروژه
+پس از وارد کردن اطلاعات، از گزینه **Test Connection** برای بررسی اتصال استفاده کنید.
+
+تنظیمات اتصال توسط برنامه ذخیره می‌شوند و برای اتصال‌های بعدی مورد استفاده قرار می‌گیرند.
+
+> **نکته:** قبل از تنظیم اتصال، ابتدا فایل `Database/database-setup.sql` را روی SQL Server اجرا کنید تا دیتابیس و جداول مورد نیاز برنامه ایجاد شوند.
+
+### 4. اجرای پروژه با Maven
+
+برای Build کردن پروژه:
 
 ```bash
-mvn clean package
+mvn clean install
 ```
 
----
-
-### 5. اجرای برنامه
+برای اجرای برنامه:
 
 ```bash
 mvn exec:java
 ```
 
-کلاس اصلی پروژه:
+> در صورت استفاده از IDE می‌توانید کلاس اصلی زیر را اجرا کنید:
+>
+> `com.programsfuture.usermanagement.UserManagementSystem`
+
+## اطلاعات ورود پیش‌فرض
+
+پس از اجرای `database-setup.sql`، یک کاربر پیش‌فرض با اطلاعات زیر ایجاد می‌شود:
 
 ```text
-com.programsfuture.usermanagement.UserManagementSystem
+Username: admin
+Password: admin
 ```
 
----
+این کاربر در گروه **Administrators** قرار دارد و مجوزهای مدیریتی اولیه را دریافت می‌کند.
 
-## Security
+> **توجه:** این اطلاعات برای اجرای اولیه و تست پروژه در نظر گرفته شده‌اند.
 
-سیستم دارای لایه امنیتی مجزا است:
+## دیتابیس
+
+نام دیتابیس پیش‌فرض:
 
 ```text
-security/
-├── PasswordHasher.java
-└── PermissionManager.java
+UserManagementSystem
 ```
 
-`PasswordHasher` برای مدیریت رمز عبور و `PermissionManager` برای بررسی دسترسی‌های کاربر استفاده می‌شوند.
+برخی از جداول اصلی:
 
----
+* `Forms`
+* `Permissions`
+* `Positions`
+* `Groups`
+* `Users`
+* `UserGroups`
+* `GroupFormPermissions`
+* `UserCustomPermissionConfigurations`
+* `UserCustomPermissions`
+* `UserFormSettings`
+* `UserPositionHistory`
 
-## مزایای پروژه
+## سیستم مجوزها
 
-* Desktop Application مستقل
-* استفاده از Java 21
-* اتصال مستقیم به SQL Server
-* ساختار مناسب برای نرم‌افزارهای سازمانی
-* مدیریت کامل کاربران
-* مدیریت Group
-* مدیریت Position
+سیستم دسترسی پروژه بر اساس Permission طراحی شده است.
+
+مجوزها می‌توانند از طریق گروه‌ها یا به‌صورت سفارشی برای کاربران تنظیم شوند.
+
+بخش‌های اصلی سیستم مجوز شامل موارد زیر است:
+
+* Group Permissions
+* User Custom Permissions
+* Form Permissions
 * Permission Management
-* Custom User Permissions
-* فعال/غیرفعال کردن کاربران
-* Search
-* Pagination
-* کنترل Permission در UI
-* Password Hashing
-* مدیریت تنظیمات Database
-* ساختار قابل توسعه برای اضافه کردن Formهای جدید
+
+کلاس `PermissionManager` مسئول بررسی دسترسی‌های مربوط به کاربر در بخش‌های مختلف برنامه است.
+
+## امنیت رمز عبور
+
+رمزهای عبور کاربران به‌صورت Plain Text در منطق احراز هویت استفاده نمی‌شوند و پروژه از کلاس `PasswordHasher` برای Hash کردن رمزهای عبور استفاده می‌کند.
+
+## تست
+
+برای اجرای تست‌های پروژه:
+
+```bash
+mvn test
+```
+
+## توسعه
+
+ساختار پروژه به بخش‌های مختلف تقسیم شده است:
+
+* `dao` — دسترسی به داده‌ها و عملیات دیتابیس
+* `data` — تنظیمات و سرویس‌های مرتبط با داده و دیتابیس
+* `model` — مدل‌های داده
+* `security` — احراز هویت، Hash کردن رمز عبور و Permission Management
+* `ui` — رابط کاربری Java Swing
+
+## فرم‌های اصلی برنامه
+
+* Database Settings
+* Login
+* Main
+* User Management
+* Groups
+* Positions
+* Permissions
+
+## وضعیت پروژه
+
+این پروژه یک **Java Desktop Application** است که برای مدیریت کاربران و کنترل دسترسی طراحی شده است.
 
 ---
 
@@ -395,399 +258,470 @@ security/
 
 ## Overview
 
-**User Management System** is a desktop application developed with **Java 21, Java Swing, Maven, and Microsoft SQL Server**.
+**User Management System** is a desktop application for user management and access control, developed using **Java 21**, **Java Swing**, and **Microsoft SQL Server**.
 
-It provides a centralized solution for managing users, organizational positions, groups, forms, and permissions.
-
-The main purpose of the system is to provide a reusable **authentication and authorization foundation** for enterprise and internal desktop applications.
-
-The project uses a structured permission model that allows administrators to control what each user can access and which operations they are allowed to perform.
-
----
+The project provides functionality for managing users, groups, positions, and permissions, with support for role/group-based and custom user permissions.
 
 ## Features
 
-### User Management
-
-The User Management module provides:
-
-* Create users
-* Update users
-* Delete users
-* Activate/deactivate users
-* Manage usernames
-* Manage passwords
-* Manage first and last names
-* Assign positions
-* Assign users to groups
-* Search users
-* Display users in a table
-* Pagination
-* Configurable page size
-* First / Previous / Next / Last page navigation
-* Display total records
-* Display total pages
-
-User create, update, and delete operations are controlled independently through permissions.
-
----
-
-### Group Management
-
-The system supports user groups.
-
-Administrators can:
-
-* Create groups
-* Manage groups
-* Assign users to groups
-* Remove users from groups
-* Assign permissions through groups
-
-This makes it possible to manage permissions for multiple users without configuring every user individually.
-
----
-
-### Position Management
-
-The application provides a dedicated Position Management module.
-
-Positions can represent organizational roles such as:
-
-* System Administrator
-* Manager
-* Supervisor
-* Operator
-* Accountant
-* Employee
-
-Users can be assigned to a position from the User Management form.
-
----
-
-### Permission Management
-
-Permission management is one of the core features of the application.
-
-Permissions are associated with application forms and can be assigned to users.
-
-The application provides a tree-based permission interface, allowing administrators to select and save permissions for a specific user.
-
-A typical structure is:
-
-```text
-Form
- ├── View
- ├── Create
- ├── Update
- └── Delete
-```
-
-The actual permissions can be customized according to the application's requirements.
-
----
-
-### Custom User Permissions
-
-The system supports direct permissions for individual users.
-
-This allows an administrator to give a specific user additional permissions without changing the permissions of the user's entire group.
-
-For example:
-
-```text
-Group A
- ├── View Users
- └── Update Users
-
-User John
- ├── View Users
- ├── Update Users
- └── Delete Users   ← Custom Permission
-```
-
----
-
-### UI-Level Authorization
-
-Permissions are also enforced at the user-interface level.
-
-For example, if a user does not have the delete permission, the Delete action is hidden from the User Management interface.
-
-Application modules such as User Management and Position Management also check permissions before opening.
-
----
-
-### Authentication
-
-The application provides a Login interface for user authentication.
-
-Password handling is separated into the security layer through `PasswordHasher`, while `PermissionManager` handles permission checks.
-
----
-
-### Search & Pagination
-
-The User Management module includes:
-
+* User authentication
+* User management
+* Create, update, and delete users
+* Enable or disable users
 * User search
-* Pagination
+* User list pagination
 * Configurable page size
-* Total record count
-* Total page count
-* First page
-* Previous page
-* Next page
-* Last page
+* Group management
+* Position management
+* Permission management
+* Assign users to groups
+* Custom user permissions
+* Group-based permissions
+* User form settings
+* User position history
+* Password hashing
+* Permission-based access control
+* SQL Server connection configuration
+* Database connection testing
+* UI theme support
 
-The user's page-size preference can also be stored in the database.
+## Technologies
 
----
+* Java 21
+* Java Swing
+* Maven
+* Microsoft SQL Server
+* JDBC
+* FlatLaf
+* SwingX
+* JUnit
 
-## Database
-
-The application uses **Microsoft SQL Server**.
-
-Database setup is provided in:
-
-```text
-Database/database-setup.sql
-```
-
-The script creates:
-
-```text
-UserManagementSystem
-```
-
-and initializes the database structure required by the application.
-
----
-
-## Project Architecture
+## Project Structure
 
 ```text
-User Interface
-      │
-      ▼
-   Security
-      │
-      ▼
-     DAO
-      │
-      ▼
-Database Layer
-      │
-      ▼
-SQL Server
-```
-
-Main packages:
-
-```text
-com.programsfuture.usermanagement
+UserManagementSystem/
 │
-├── dao
-├── data
-├── model
-├── security
-└── ui
+├── Database/
+│   └── database-setup.sql
+│
+├── lib/
+│   ├── JavaDate 1.3.jar
+│   ├── icu4j-57_1.jar
+│   ├── swingx-all-1.6.5-1.jar
+│   └── swingx-beaninfo-1.6.5-1.jar
+│
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       └── com/programsfuture/usermanagement/
+│   │           ├── dao/
+│   │           ├── data/
+│   │           ├── model/
+│   │           ├── security/
+│   │           └── ui/
+│   │
+│   └── test/
+│
+├── pom.xml
+├── .gitignore
+└── README.md
 ```
-
-The repository separates DAO, data access, models, security, and UI components.
-
----
-
-## Technology Stack
-
-| Technology           | Purpose                       |
-| -------------------- | ----------------------------- |
-| Java 21              | Application Runtime           |
-| Java Swing           | Desktop UI                    |
-| Maven                | Build & Dependency Management |
-| Microsoft SQL Server | Database                      |
-| JDBC                 | Database Connectivity         |
-| FlatLaf              | Swing Look & Feel             |
-| SwingX               | Extended Swing Components     |
-| JUnit                | Testing                       |
-
-The project is configured for Java 21 and uses Microsoft's SQL Server JDBC driver.
-
----
-
-## Use Cases
-
-This project can be used as a foundation for:
-
-* Enterprise applications
-* Internal company applications
-* ERP systems
-* CRM systems
-* Accounting software
-* HR systems
-* Administrative applications
-* Desktop management systems
-* Java-based business applications
-* Applications requiring role/permission management
-
-It can also be extended by adding new application forms and registering their permissions in the permission system.
-
----
-
-## Permission Architecture
-
-The authorization model can be represented as:
-
-```text
-User
- │
- ├── Position
- │
- ├── Groups
- │    └── Permissions
- │
- └── Custom Permissions
-```
-
-Forms contain permissions:
-
-```text
-Form
- ├── Permission
- ├── Permission
- ├── Permission
- └── Permission
-```
-
-This provides both group-based and user-specific authorization.
-
----
 
 ## Requirements
 
-Before running the application, make sure the following are installed:
+The following software is required:
 
-* JDK 21
+* Java JDK 21 or later
 * Maven
 * Microsoft SQL Server
-* SQL Server Management Studio or another SQL Server client
-* Git
+* Access to a running SQL Server instance
+* Git, if cloning the repository
 
----
+## Installation and Setup
 
-## Installation
-
-### Clone the Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/programsfuture/user-management-system.git
 cd user-management-system
 ```
 
-### Setup the Database
+### 2. Create the Database
 
-Run:
+Locate the following file:
 
 ```text
 Database/database-setup.sql
 ```
 
-using SQL Server.
+Run it using SQL Server Management Studio or another compatible SQL Server tool.
 
-### Configure Database Connection
+The script creates the following database:
 
-Configure the SQL Server connection through the application's database configuration.
-
-### Build
-
-```bash
-mvn clean package
+```text
+UserManagementSystem
 ```
 
-### Run
+It also creates the required tables and inserts the initial data.
+
+> **Warning:** At the beginning of its execution, `database-setup.sql` drops the `UserManagementSystem` database if it already exists and then recreates it. Do not run this script against a database containing important data.
+
+### 3. Configure the Database Connection
+
+After launching the application, configure the SQL Server connection through the **Database Settings** section.
+
+Required information:
+
+* **Server:** SQL Server server name or IP address
+* **Port:** SQL Server port, usually `1433`
+* **Database:** Database name, by default `UserManagementSystem`
+* **Username:** SQL Server username
+* **Password:** SQL Server password
+
+After entering the connection details, use **Test Connection** to verify the connection.
+
+The application stores the connection settings and uses them for subsequent database connections.
+
+> **Note:** Run `Database/database-setup.sql` before configuring the connection so that the required database and tables are available.
+
+### 4. Run with Maven
+
+Build the project:
+
+```bash
+mvn clean install
+```
+
+Run the application:
 
 ```bash
 mvn exec:java
 ```
 
-Main class:
+> You can also run the following main class directly from your IDE:
+>
+> `com.programsfuture.usermanagement.UserManagementSystem`
+
+## Default Login
+
+After running `database-setup.sql`, a default user is created:
 
 ```text
-com.programsfuture.usermanagement.UserManagementSystem
+Username: admin
+Password: admin
 ```
+
+The user belongs to the **Administrators** group and receives the initial administrative permissions.
+
+> **Note:** These credentials are provided for initial project setup and testing.
+
+## Database
+
+Default database name:
+
+```text
+UserManagementSystem
+```
+
+Main database tables include:
+
+* `Forms`
+* `Permissions`
+* `Positions`
+* `Groups`
+* `Users`
+* `UserGroups`
+* `GroupFormPermissions`
+* `UserCustomPermissionConfigurations`
+* `UserCustomPermissions`
+* `UserFormSettings`
+* `UserPositionHistory`
+
+## Permission System
+
+The application uses a permission-based access-control system.
+
+Permissions can be assigned through groups or configured as custom permissions for individual users.
+
+The main permission-related components include:
+
+* Group Permissions
+* User Custom Permissions
+* Form Permissions
+* Permission Management
+
+The `PermissionManager` class is responsible for checking user permissions across the application.
+
+## Password Security
+
+User passwords are not handled as plain-text values by the authentication logic. The project uses the `PasswordHasher` class to hash user passwords.
+
+## Testing
+
+Run the test suite with:
+
+```bash
+mvn test
+```
+
+## Development
+
+The project is organized into several main packages:
+
+* `dao` — Database access and data operations
+* `data` — Data and database-related configuration/services
+* `model` — Data models
+* `security` — Authentication, password hashing, and permission management
+* `ui` — Java Swing user interface
+
+## Main Application Forms
+
+* Database Settings
+* Login
+* Main
+* User Management
+* Groups
+* Positions
+* Permissions
+
+## Project Status
+
+This project is a **Java Desktop Application** designed for user management and access control.
 
 ---
 
-## Project Structure
+# العربية
+
+## نظرة عامة
+
+**User Management System** هو تطبيق سطح مكتب لإدارة المستخدمين والتحكم في الوصول، تم تطويره باستخدام **Java 21** و**Java Swing** و**Microsoft SQL Server**.
+
+يوفر المشروع وظائف لإدارة المستخدمين والمجموعات والمناصب والصلاحيات، مع دعم التحكم في الوصول باستخدام صلاحيات المجموعات والصلاحيات المخصصة للمستخدمين.
+
+## الميزات
+
+* تسجيل دخول المستخدمين
+* إدارة المستخدمين
+* إنشاء المستخدمين وتعديلهم وحذفهم
+* تفعيل المستخدمين أو تعطيلهم
+* البحث عن المستخدمين
+* تقسيم قائمة المستخدمين إلى صفحات
+* تحديد عدد السجلات في كل صفحة
+* إدارة المجموعات
+* إدارة المناصب
+* إدارة الصلاحيات
+* إضافة المستخدمين إلى المجموعات
+* تخصيص صلاحيات للمستخدمين
+* إدارة صلاحيات المجموعات
+* إعدادات نماذج المستخدمين
+* حفظ سجل المناصب للمستخدمين
+* تشفير/تجزئة كلمات المرور
+* التحكم في الوصول بناءً على الصلاحيات
+* إعداد اتصال Microsoft SQL Server
+* اختبار اتصال قاعدة البيانات
+* دعم تغيير مظهر واجهة المستخدم
+
+## التقنيات المستخدمة
+
+* Java 21
+* Java Swing
+* Maven
+* Microsoft SQL Server
+* JDBC
+* FlatLaf
+* SwingX
+* JUnit
+
+## هيكل المشروع
 
 ```text
-user-management-system/
+UserManagementSystem/
 │
 ├── Database/
 │   └── database-setup.sql
 │
 ├── lib/
+│   ├── JavaDate 1.3.jar
+│   ├── icu4j-57_1.jar
+│   ├── swingx-all-1.6.5-1.jar
+│   └── swingx-beaninfo-1.6.5-1.jar
 │
 ├── src/
 │   ├── main/
-│   │   ├── java/
-│   │   │   └── com/programsfuture/usermanagement/
-│   │   │       ├── dao/
-│   │   │       ├── data/
-│   │   │       ├── model/
-│   │   │       ├── security/
-│   │   │       └── ui/
-│   │   └── resources/
+│   │   └── java/
+│   │       └── com/programsfuture/usermanagement/
+│   │           ├── dao/
+│   │           ├── data/
+│   │           ├── model/
+│   │           ├── security/
+│   │           └── ui/
 │   │
 │   └── test/
 │
 ├── pom.xml
-└── nbactions.xml
+├── .gitignore
+└── README.md
 ```
 
----
+## المتطلبات
 
-## Security Components
+لتشغيل المشروع تحتاج إلى:
+
+* Java JDK 21 أو إصدار أحدث
+* Maven
+* Microsoft SQL Server
+* خادم SQL Server يعمل ويمكن الوصول إليه
+* Git، في حال تنزيل المشروع من Repository
+
+## التثبيت والإعداد
+
+### 1. تنزيل المشروع
+
+قم باستنساخ Repository:
+
+```bash
+git clone https://github.com/programsfuture/user-management-system.git
+cd user-management-system
+```
+
+### 2. إنشاء قاعدة البيانات
+
+ابحث عن الملف التالي:
 
 ```text
-security/
-├── PasswordHasher.java
-└── PermissionManager.java
+Database/database-setup.sql
 ```
 
-* `PasswordHasher` handles password hashing.
-* `PermissionManager` handles authorization and permission checks.
+قم بتشغيله باستخدام SQL Server Management Studio أو أي أداة متوافقة مع SQL Server.
 
----
-
-## Why This Project?
-
-The project is designed as a reusable foundation rather than only a simple CRUD application.
-
-Its main strength is the combination of:
+يقوم الملف بإنشاء قاعدة البيانات:
 
 ```text
-User Management
-       +
-Groups
-       +
-Positions
-       +
-Forms
-       +
-Permissions
-       +
-Custom Permissions
-       +
-Authentication
-       +
-SQL Server
+UserManagementSystem
 ```
 
-This makes it suitable for integrating into larger Java desktop applications that require centralized user and access management.
+كما يقوم بإنشاء الجداول المطلوبة وإدخال البيانات الأولية.
 
----
+> **تحذير:** في بداية تنفيذ `database-setup.sql`، يتم حذف قاعدة البيانات `UserManagementSystem` إذا كانت موجودة، ثم يتم إنشاؤها من جديد. لذلك لا تقم بتشغيل هذا الملف على قاعدة بيانات تحتوي على بيانات مهمة.
 
-## License
+### 3. إعداد اتصال قاعدة البيانات
 
-Add the project's license information here if a license is added to the repository.
+بعد تشغيل البرنامج، قم بإعداد اتصال SQL Server من خلال قسم **Database Settings** داخل التطبيق.
+
+المعلومات المطلوبة:
+
+* **Server:** اسم خادم SQL Server أو عنوان IP
+* **Port:** منفذ SQL Server، وعادةً يكون `1433`
+* **Database:** اسم قاعدة البيانات، والقيمة الافتراضية هي `UserManagementSystem`
+* **Username:** اسم مستخدم SQL Server
+* **Password:** كلمة مرور SQL Server
+
+بعد إدخال معلومات الاتصال، استخدم خيار **Test Connection** للتحقق من الاتصال.
+
+يقوم التطبيق بحفظ إعدادات الاتصال واستخدامها في عمليات الاتصال اللاحقة بقاعدة البيانات.
+
+> **ملاحظة:** يجب تشغيل `Database/database-setup.sql` أولاً حتى يتم إنشاء قاعدة البيانات والجداول المطلوبة.
+
+### 4. تشغيل المشروع باستخدام Maven
+
+لبناء المشروع:
+
+```bash
+mvn clean install
+```
+
+لتشغيل التطبيق:
+
+```bash
+mvn exec:java
+```
+
+> يمكن أيضاً تشغيل الكلاس الرئيسي التالي مباشرة من خلال بيئة التطوير IDE:
+>
+> `com.programsfuture.usermanagement.UserManagementSystem`
+
+## بيانات تسجيل الدخول الافتراضية
+
+بعد تشغيل `database-setup.sql`، يتم إنشاء مستخدم افتراضي:
+
+```text
+Username: admin
+Password: admin
+```
+
+يتم إضافة المستخدم إلى مجموعة **Administrators** ويحصل على الصلاحيات الإدارية الأولية.
+
+> **ملاحظة:** بيانات الدخول هذه مخصصة للإعداد الأولي واختبار المشروع.
+
+## قاعدة البيانات
+
+اسم قاعدة البيانات الافتراضي:
+
+```text
+UserManagementSystem
+```
+
+تشمل الجداول الرئيسية:
+
+* `Forms`
+* `Permissions`
+* `Positions`
+* `Groups`
+* `Users`
+* `UserGroups`
+* `GroupFormPermissions`
+* `UserCustomPermissionConfigurations`
+* `UserCustomPermissions`
+* `UserFormSettings`
+* `UserPositionHistory`
+
+## نظام الصلاحيات
+
+يعتمد التطبيق على نظام للتحكم في الوصول باستخدام الصلاحيات.
+
+يمكن تعيين الصلاحيات من خلال المجموعات أو تخصيصها بشكل منفصل لكل مستخدم.
+
+تشمل الأجزاء الرئيسية لنظام الصلاحيات:
+
+* Group Permissions
+* User Custom Permissions
+* Form Permissions
+* Permission Management
+
+يُستخدم الكلاس `PermissionManager` للتحقق من صلاحيات المستخدم في مختلف أجزاء التطبيق.
+
+## أمان كلمات المرور
+
+لا يعتمد نظام المصادقة على تخزين كلمات المرور كنصوص عادية، ويستخدم المشروع الكلاس `PasswordHasher` لمعالجة تجزئة كلمات المرور.
+
+## الاختبارات
+
+لتشغيل اختبارات المشروع:
+
+```bash
+mvn test
+```
+
+## التطوير
+
+تم تقسيم المشروع إلى عدة حزم رئيسية:
+
+* `dao` — الوصول إلى قاعدة البيانات وتنفيذ عمليات البيانات
+* `data` — إعدادات وخدمات البيانات وقاعدة البيانات
+* `model` — نماذج البيانات
+* `security` — المصادقة وتجزئة كلمات المرور وإدارة الصلاحيات
+* `ui` — واجهة المستخدم المبنية باستخدام Java Swing
+
+## النماذج الرئيسية للتطبيق
+
+* Database Settings
+* Login
+* Main
+* User Management
+* Groups
+* Positions
+* Permissions
+
+## حالة المشروع
+
+هذا المشروع هو **تطبيق سطح مكتب مبني باستخدام Java** ومخصص لإدارة المستخدمين والتحكم في الوصول والصلاحيات.
