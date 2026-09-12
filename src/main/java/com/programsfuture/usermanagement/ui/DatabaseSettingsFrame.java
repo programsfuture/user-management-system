@@ -161,66 +161,76 @@ public class DatabaseSettingsFrame extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
-        try {
-            String server = txtServer.getText().trim();
-            String database = txtDatabase.getText().trim();
-            String username = txtUsername.getText().trim();
-            String password = new String(txtPassword.getPassword());
+         try {
+        String server = txtServer.getText().trim();
+        String database = txtDatabase.getText().trim();
+        String username = txtUsername.getText().trim();
+        String password = new String(txtPassword.getPassword());
 
-            if (server.isEmpty()
-                    || database.isEmpty()
-                    || username.isEmpty()
-                    || password.isEmpty()) {
+        if (server.isEmpty()
+                || database.isEmpty()
+                || username.isEmpty()
+                || password.isEmpty()) {
 
-                JOptionPane.showMessageDialog(
-                        this,
-                        "تمام اطلاعات اتصال به پایگاه داده را وارد کنید.",
-                        "هشدار",
-                        JOptionPane.WARNING_MESSAGE
-                );
-                return;
-            }
-
-            int port = Integer.parseInt(txtPort.getText().trim());
-            if (port < 1 || port > 65535) {
-                JOptionPane.showMessageDialog(
-                        this,
-                        "پورت سرور باید بین 1 و 65535 باشد.",
-                        "خطا",
-                        JOptionPane.WARNING_MESSAGE
-                );
-                txtPort.requestFocus();
-                return;
-            }
-
-            DatabaseConfig config = new DatabaseConfig(
-                    server,
-                    port,
-                    database,
-                    username,
-                    password,
-                    true
-            );
-            DatabaseConfigService.save(config);
-
-        } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(
                     this,
-                    "پورت سرور باید یک عدد معتبر باشد.",
-                    "خطا",
-                    JOptionPane.ERROR_MESSAGE
+                    "تمام اطلاعات اتصال به پایگاه داده را وارد کنید.",
+                    "هشدار",
+                    JOptionPane.WARNING_MESSAGE
             );
-
-        } catch (Exception ex) {
-
-            javax.swing.JOptionPane.showMessageDialog(
-                    this,
-                    com.programsfuture.usermanagement.data.DatabaseErrorHandler
-                            .getUserMessage(ex),
-                    "خطا",
-                    javax.swing.JOptionPane.ERROR_MESSAGE
-            );
+            return;
         }
+
+        int port = Integer.parseInt(txtPort.getText().trim());
+
+        if (port < 1 || port > 65535) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "پورت سرور باید بین 1 و 65535 باشد.",
+                    "خطا",
+                    JOptionPane.WARNING_MESSAGE
+            );
+            txtPort.requestFocus();
+            return;
+        }
+
+        DatabaseConfig config = new DatabaseConfig(
+                server,
+                port,
+                database,
+                username,
+                password,
+                true
+        );
+
+        DatabaseConfigService.save(config);
+
+        JOptionPane.showMessageDialog(
+                this,
+                "تنظیمات با موفقیت ذخیره شد.",
+                "ذخیره تنظیمات",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+
+    } catch (NumberFormatException ex) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "پورت سرور باید یک عدد معتبر باشد.",
+                "خطا",
+                JOptionPane.ERROR_MESSAGE
+        );
+
+    } catch (Exception ex) {
+
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                com.cognitivekernel.warehouse.data.DatabaseErrorHandler
+                        .getUserMessage(ex),
+                "خطا",
+                JOptionPane.ERROR_MESSAGE
+        );
+    }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
