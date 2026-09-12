@@ -1,4 +1,4 @@
-package com.programsfuture.usermanagement;
+package com.cognitivekernel.warehouse;
 
 public class DatabaseConfig {
 
@@ -13,15 +13,15 @@ public class DatabaseConfig {
     }
 
     public DatabaseConfig(String server, int port, String database,
-        String username, String password,
-        boolean trustServerCertificate) {
-    this.server = server;
-    this.port = port;
-    this.database = database;
-    this.username = username;
-    this.password = password;
-    this.trustServerCertificate = trustServerCertificate;
-}
+            String username, String password,
+            boolean trustServerCertificate) {
+        this.server = server;
+        this.port = port;
+        this.database = database;
+        this.username = username;
+        this.password = password;
+        this.trustServerCertificate = trustServerCertificate;
+    }
 
     public String getServer() {
         return server;
@@ -62,10 +62,11 @@ public class DatabaseConfig {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public boolean isTrustServerCertificate() {
-    return trustServerCertificate;
+        return trustServerCertificate;
     }
-    
+
     public void setTrustServerCertificate(boolean trustServerCertificate) {
         this.trustServerCertificate = trustServerCertificate;
     }
