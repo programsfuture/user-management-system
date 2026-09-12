@@ -198,7 +198,8 @@ public class DatabaseSettingsFrame extends javax.swing.JFrame {
                     port,
                     database,
                     username,
-                    password
+                    password,
+                    true
             );
 
         } catch (NumberFormatException ex) {
@@ -263,12 +264,13 @@ public class DatabaseSettingsFrame extends javax.swing.JFrame {
             }
 
             DatabaseConfig config = new DatabaseConfig(
-                    server,
-                    port,
-                    database,
-                    username,
-                    password
-            );
+                        server,
+                        port,
+                        database,
+                        username,
+                        password,
+                        true
+                );
 
             DatabaseConnectionService.testConnection(config);
 
