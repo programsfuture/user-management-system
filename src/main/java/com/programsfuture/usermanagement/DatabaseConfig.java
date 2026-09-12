@@ -7,18 +7,21 @@ public class DatabaseConfig {
     private String database;
     private String username;
     private String password;
+    private boolean trustServerCertificate;
 
     public DatabaseConfig() {
     }
 
     public DatabaseConfig(String server, int port, String database,
-            String username, String password) {
-        this.server = server;
-        this.port = port;
-        this.database = database;
-        this.username = username;
-        this.password = password;
-    }
+        String username, String password,
+        boolean trustServerCertificate) {
+    this.server = server;
+    this.port = port;
+    this.database = database;
+    this.username = username;
+    this.password = password;
+    this.trustServerCertificate = trustServerCertificate;
+}
 
     public String getServer() {
         return server;
@@ -58,5 +61,12 @@ public class DatabaseConfig {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public boolean isTrustServerCertificate() {
+    return trustServerCertificate;
+    }
+    
+    public void setTrustServerCertificate(boolean trustServerCertificate) {
+        this.trustServerCertificate = trustServerCertificate;
     }
 }
