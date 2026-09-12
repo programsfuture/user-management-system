@@ -201,6 +201,7 @@ public class DatabaseSettingsFrame extends javax.swing.JFrame {
                     password,
                     true
             );
+            DatabaseConfigService.save(config);
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(
