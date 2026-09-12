@@ -1,4 +1,4 @@
-package com.programsfuture.usermanagement;
+package com.cognitivekernel.warehouse;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -153,7 +153,8 @@ public final class DatabaseConfigService {
                 Integer.parseInt(values[1]),
                 values[2],
                 values[3],
-                values[4]
+                values[4],
+                true
         );
 
         return cachedConfig;
